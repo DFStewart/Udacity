@@ -2,7 +2,7 @@
 
 ## FORWARD
 I would like to recognize Vivek Yadav, the Slack channel, Udacity SDCND forums and posts on medium.com for providing me
-ideas for models, image processing and identifying pitalls. Without these resources I would not have been able to complete 
+ideas for models, image processing and identifying pitfalls. Without these resources I would not have been able to complete 
 the project.
 
 ## OVERALL APPROACH
