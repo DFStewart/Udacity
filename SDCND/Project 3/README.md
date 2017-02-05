@@ -49,8 +49,12 @@ I used Keras' fit_generator function to train the network. The training data was
 ## OTHER CHANGES
 Based on a carnd-forums post[], I modified the drive.py file so that the steering angle affects the throttle command. The larger the steering angle the lower the speed The linear function I used was (throttle = -0.1*steering + 0.2). I tuned this by hand for what I felt was the best result.
 
+https://www.youtube.com/watch?v=fDfAmsukHyE
+
 ## TESTING AND VALIDATION
 I tested the network at 3 resolutions that my computer could handle (640x480, 800x600, 960x720). The Youtube video below shows the car successfully navigating the track in all 3 cases
+
+
 
 ## REFERENCES
 [1] - https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.y6rpzgwxc
