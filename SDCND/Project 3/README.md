@@ -54,7 +54,7 @@ https://www.youtube.com/watch?v=fDfAmsukHyE
 ## TESTING AND VALIDATION
 I tested the network at 3 resolutions that my computer could handle (640x480, 800x600, 960x720). The Youtube video below shows the car successfully navigating the track in all 3 cases
 
-
+https://www.youtube.com/watch?v=WvzXHbGTI20
 
 ## REFERENCES
 [1] - https://chatbotslife.com/using-augmentation-to-mimic-human-driving-496b569760a9#.y6rpzgwxc
