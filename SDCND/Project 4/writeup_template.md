@@ -1,8 +1,5 @@
-##Writeup Template
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
+##SELF DRIVING CAR NANODEGREE PROJECT 4
 ---
-
 **Advanced Lane Finding Project**
 
 The goals / steps of this project are the following:
@@ -18,23 +15,23 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image1]: ./writeup_images/test_images_1_calibrated.jpg "Undistorted"
+[image2]: ./writeup_images/test1.jpg "Road Transformed"
+[image3]: ./writeup_images/binary_combo_example.jpg "Binary Example"
+[image4]: ./writeup_images/warped_straight_lines.jpg "Warp Example"
+[image5]: ./writeup_images/color_fit_lines.jpg "Fit Visual"
+[image6]: ./writeup_images/example_output.jpg "Output"
+[video1]: ./output_videos/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
-
 ---
 ###Writeup / README
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
 
-You're reading it!
+This is the Writeup/README  file.
+
 ###Camera Calibration
 
 ####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
