@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image6]: ./writeup_images/HLS.png "HLS"
 [image7]: ./writeup_images/RGB.png "RGB"
 [image8]: ./writeup_images/sobel_test.png "Sobel Test"
-[image9]:  ./writeup_images/img_prep.png1 "Image Processed 1"
+[image9]:  ./writeup_images/img_prep1.png "Image Processed 1"
 [image10]: ./writeup_images/mask.png "Masked Image"
 [image11]: ./writeup_images/img_prep1.png "Image Processed 1"
 [image12]: ./writeup_images/perspective_tfm.png "Birds Eye Transform"
