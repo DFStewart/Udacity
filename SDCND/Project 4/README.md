@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 [image8]: ./writeup_images/sobel_test.png "Sobel Test"
 [image9]:  ./writeup_images/img_prep.png1 "Image Processed 1"
 [image10]: ./writeup_images/mask.png "Masked Image"
-[image11]: ./writeup_images/img_prep.png "Image Processed 1"
+[image11]: ./writeup_images/img_prep1.png "Image Processed 1"
 [image12]: ./writeup_images/perspective_tfm.png "Birds Eye Transform"
 [image13]: ./writeup_images/lane_det.png "Lane Find"
 [image14]: ./writeup_images/nxt_frame.png "Next Frame Lane Find"
