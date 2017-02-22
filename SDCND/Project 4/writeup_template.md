@@ -64,7 +64,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 ###Pipeline (Single Images)
 
 ####1. Provide an example of a distortion-corrected image.
-Using the camera calibration computed from the 20 camera calibration images I used the 'cv2.undistort()' function to obtain the distortion corrected images on the test images provided with the project. This code is performed in cells 5 and 6 in the IPython notebook. An example is shown below:
+Using the camera calibration computed from the 20 camera calibration images I used the `cv2.undistort()` function to obtain the distortion corrected images on the test images provided with the project. This code is performed in cells 5 and 6 in the IPython notebook. An example is shown below:
 ![alt text][image2]
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
@@ -85,12 +85,12 @@ RGB
 ![alt text][image7]
 
 # GRADIENT THRESHOLDING ANALYSIS
-My next step was to test the different types of Sobel gradient thresholding on the S-channel of HLS converted images and combine that with the color thresholding. I tried absolute x, absolute y, magnitude and directional Sobel gradient thresholding. As shown in the figure below, the absolute x Sobel gradient thresholding worked the best on the test images. This is contained in cell 12. I used the 'cv2.Sobel' function to compute the x gradients and then computed the magnitude in the x direction. I used a kernel size of 21 and min and max thresholds of 20 and 100 respectively. This is contained in the 'sobel_absx' function.
+My next step was to test the different types of Sobel gradient thresholding on the S-channel of HLS converted images and combine that with the color thresholding. I tried absolute x, absolute y, magnitude and directional Sobel gradient thresholding. As shown in the figure below, the absolute x Sobel gradient thresholding worked the best on the test images. This is contained in cell 12. I used the `cv2.Sobel()` function to compute the x gradients and then computed the magnitude in the x direction. I used a kernel size of 21 and min and max thresholds of 20 and 100 respectively. This is contained in the `sobel_absx()` function.
 
 ![alt text][image8]
 
 # COMBINING COLOR AND GRADIENT THRESHOLDING
-To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions 'pipeline_binary_img_test', 'combined_color' and 'sobel_absx'. Here's an example of my output for this step.
+To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step.
 
 ![alt text][image9]
 
@@ -118,7 +118,6 @@ The code for my perspective transform includes a function called `BirdsEyeTransf
 ```
     src = np.float32([[583, 460], [203, 720], [1127, 720], [705, 460]])
     dst = np.float32([[320, 0], [320, 720], [960,720], [960, 0]])
-
 ```
 This resulted in the following source and destination points:
 
@@ -159,6 +158,8 @@ I implemented this step in the function `projectlane()`.  Here are the results o
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
+My final pipeline is contained withing the `process_video()` function.
+
 Here's a [link to my video result](./output_videos/project_video.mp4)
 
 ---
@@ -167,7 +168,14 @@ Here's a [link to my video result](./output_videos/project_video.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Issues:
+#Issues/Problems:
+I had a lot of issues getting tuning all the different parameters in such a way that all the test cases and video data worked properly. I ended up going nearly frame by frame in the video trying to identify why a particular frame failed. I realized that it was going to be extremely difficult to satisfy all the frames and instead I needed to average the lane line fits across multiple frames to prevent a single bad frame from failing. 
+
+#Failure Modes:
+Overall this pipeline is very fragile. All of the parameters and thresholds are hand tuned for the test images and the project video. Any major changes to lighting, color changes in the road, changes to lines in the road and other unforseen abnormalities in the lanes or road will cause major issues.
+
+#Robustness: 
+To make this more robust I could implement more logic to try and compare the polynomials between frames to protect against cases when the lane finder failed. Also I could spend more time trying to further tune Sobel and color thresholds.
 
 
 
