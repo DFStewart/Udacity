@@ -85,7 +85,7 @@ My second step was to identify which color space would work best for the gradien
 ![alt text][image7]
 
 #### GRADIENT THRESHOLDING ANALYSIS
-My next step was to test the different types of Sobel gradient thresholding on the S-channel of HLS converted images and combine that with the color thresholding. I tried absolute x, absolute y, magnitude and directional Sobel gradient thresholding. As shown in the figure below, the absolute x Sobel gradient thresholding worked the best on the test images. This is contained in cell 12. I used the `cv2.Sobel()` function to compute the x gradients and then computed the magnitude in the x direction. I used a kernel size of 21 and min and max thresholds of 20 and 100 respectively. This is contained in the `sobel_absx()` function.
+My next step was to test the different types of Sobel gradient thresholding on the S-channel of HLS converted images and combine that with the color thresholding. I tried absolute x, absolute y, magnitude and directional Sobel gradient thresholding. As shown in the figure below, the absolute x Sobel gradient thresholding worked the best on the test images. I used the `cv2.Sobel()` function to compute the x gradients and then computed the magnitude in the x direction. I used a kernel size of 21 and min and max thresholds of 20 and 100 respectively. This is contained in the `sobel_absx()` function in cell 12.
 
 ![alt text][image8]
 
