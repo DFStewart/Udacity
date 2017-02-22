@@ -42,8 +42,8 @@ This is the Writeup/README  file.
 
 Note that I provided 2 IPython notebooks, one with most of the code executed so that important outputs are displayed and another with just the code unevaluated. This was due to the size of the notebook with all the code executed and output images displayed. It was over 25 MB so I had difficulty uploading and viewing it on GitHub.
 
-P4.ipynb - this is the code with most of the cells executed, it is very large
-P4_justcode.ipynb - this is just the code, it is very small
+* P4.ipynb - this is the code with most of the cells executed, it is very large
+* P4_justcode.ipynb - this is just the code, it is very small
 
 ###Camera Calibration
 
