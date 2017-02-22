@@ -90,12 +90,12 @@ My next step was to test the different types of Sobel gradient thresholding on t
 ![alt text][image8]
 
 #### COMBINING COLOR AND GRADIENT THRESHOLDING
-To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step.
+To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step. Notice that park of the road edge/concrete barrier is being picked up. In the next step I remove this.
 
 ![alt text][image9]
 
 #### MASKING
-I noticed in testing the video that I was getting a lot of extra lines from the sides of the bridges and edges of some of the roads. I also noticed by inspection that the lane lines mostly stayed in the birds eye projected area between x of 200 and 1200. I decided to mask out this region from the binary image after its projection to the birds eye view. This is contained in cell 14 and in the function 'region_of_interest'.
+Often extra lines from the sides of the bridges and edges of some of the roads appear in the binary images. I also noticed by inspection that the lane lines mostly stayed in the birds eye projected area between x of 200 and 1200. I decided to mask out this region from the binary image after its projection to the birds eye view. This is contained in cell 14 and in the function `region_of_interest()`.
 The mask verticies I used are:
 
 | Verticies     | 
