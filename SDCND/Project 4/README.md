@@ -69,32 +69,32 @@ Using the camera calibration computed from the 20 camera calibration images I us
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-# COLOR THRESHOLDING
+#### COLOR THRESHOLDING
 My first step was to try and choose color thresholds from the RGB images. The lanes are white and yellow, so I tuned my color thresholds to try and identify white and yellow pixels in the image without getting too much noise from similar colors in the image. The images with the lighter grey bridge surface were most difficult because there was the least contrast between the light grey road surface and the yellow and white lane lines. I hand tuned these parameters to get the best result. This code is 
 contained in the 8th cell under the COLOR THRESHOLDING TESTS subheading. The images below are a sample of the color thresholded binary image (the perspective transform is described below, but was executed before this code):
 ![alt text][image3]
 ![alt text][image4]
 
-# COLOR SPACE ANALYSIS
+#### COLOR SPACE ANALYSIS
 My second step was to identify which color space would work best for the gradient thresholding on. I looked at HSV, HLS and RGB (see example images below). By inspection it was clear the S-Channel of the HLS had the most prominent contrast in the lanes and I felt it was the best candidate to run the gradient thresholding on. The code for this is contained in cells 9-11 under the COLOR SPACES TESTING subheading.
-HSV
+* HSV
 ![alt text][image5]
-HLS
+* HLS
 ![alt text][image6]
-RGB
+* RGB
 ![alt text][image7]
 
-# GRADIENT THRESHOLDING ANALYSIS
+#### GRADIENT THRESHOLDING ANALYSIS
 My next step was to test the different types of Sobel gradient thresholding on the S-channel of HLS converted images and combine that with the color thresholding. I tried absolute x, absolute y, magnitude and directional Sobel gradient thresholding. As shown in the figure below, the absolute x Sobel gradient thresholding worked the best on the test images. This is contained in cell 12. I used the `cv2.Sobel()` function to compute the x gradients and then computed the magnitude in the x direction. I used a kernel size of 21 and min and max thresholds of 20 and 100 respectively. This is contained in the `sobel_absx()` function.
 
 ![alt text][image8]
 
-# COMBINING COLOR AND GRADIENT THRESHOLDING
+#### COMBINING COLOR AND GRADIENT THRESHOLDING
 To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step.
 
 ![alt text][image9]
 
-# MASKING
+#### MASKING
 I noticed in testing the video that I was getting a lot of extra lines from the sides of the bridges and edges of some of the roads. I also noticed by inspection that the lane lines mostly stayed in the birds eye projected area between x of 200 and 1200. I decided to mask out this region from the binary image after its projection to the birds eye view. This is contained in cell 14 and in the function 'region_of_interest'.
 The mask verticies I used are:
 
@@ -107,7 +107,7 @@ The mask verticies I used are:
 
 ![alt text][image10]
 
-# FINAL PROCESSED OUTPUT
+#### FINAL PROCESSED OUTPUT
 This is the final output binary image after color and gradient thresholding and masking.
 ![alt text][image11]
 
@@ -168,11 +168,11 @@ Here's a [link to my video result](./output_videos/project_video.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-#Issues/Problems:
+####Issues/Problems:
 I had a lot of issues getting tuning all the different parameters in such a way that all the test cases and video data worked properly. I ended up going nearly frame by frame in the video trying to identify why a particular frame failed. I realized that it was going to be extremely difficult to satisfy all the frames and instead I needed to average the lane line fits across multiple frames to prevent a single bad frame from failing. 
 
-#Failure Modes:
+####Failure Modes:
 Overall this pipeline is very fragile. All of the parameters and thresholds are hand tuned for the test images and the project video. Any major changes to lighting, color changes in the road, changes to lines in the road and other unforseen abnormalities in the lanes or road will cause major issues.
 
-#Robustness: 
+####Robustness: 
 To make this more robust I could implement more logic to try and compare the polynomials between frames to protect against cases when the lane finder failed. Also I could spend more time trying to further tune Sobel and color thresholds.
