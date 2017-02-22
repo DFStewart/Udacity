@@ -90,7 +90,7 @@ My next step was to test the different types of Sobel gradient thresholding on t
 ![alt text][image8]
 
 #### COMBINING COLOR AND GRADIENT THRESHOLDING
-To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step. Notice that park of the road edge/concrete barrier is being picked up. In the next step I remove this.
+To combine the color and gradient thresholds I performed a bitwise & on the binary images formed from the color and gradient thresholding. The code for this is contained in cell 13 in the functions `pipeline_binary_img_test()`, `combined_color()` and `sobel_absx()`. Here's an example of my output for this step. Notice that part of the road edge/concrete barrier is being picked up. In the next step I remove this.
 
 ![alt text][image9]
 
