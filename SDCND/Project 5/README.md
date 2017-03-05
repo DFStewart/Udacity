@@ -74,7 +74,7 @@ The code for this step is contained in code cells 4-6 of the IPython notebook.
 ![alt text][image5]
 
 #### GRADIENT BASED FEATURES
-Although I did not end up using gradient features, I did do some exploration into whethere they would be a good choice. I found empirically they did not improve my results on the video or test images so I did not end up including them. One examples is shown below.
+Although I did not end up using gradient features, I did do some exploration into whethere they would be a good choice. I found empirically they did not improve my results on the video or test images so I did not end up including them. One example is shown below.
 
 The code for this step is contained in the 7th code cell of the IPython notebook. 
 
