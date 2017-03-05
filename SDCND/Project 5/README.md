@@ -16,11 +16,11 @@ The goals / steps of this project are the following:
 [image2]: ./output_images/Cars_NotCars2.png
 [image3]: ./output_images/color_hist.png
 [image4]: ./output_images/3Dcolor.png
-[image5]: ./output_images/spatialbins.jpg
-[image6]: ./output_images/gradientthresh.jpg
-[image7]: ./output_images/HOGFeatures.jpg
-[image8]: ./output_images/win_sizes.jpg
-[image9]: ./output_images/sliding_windows.jpg
+[image5]: ./output_images/spatialbins.png
+[image6]: ./output_images/gradientthresh.png
+[image7]: ./output_images/HOGFeatures.png
+[image8]: ./output_images/win_sizes.png
+[image9]: ./output_images/sliding_windows.png
 [image10]: ./output_images/classifierresults.png
 [image11]: ./output_images/heatmaps1.png
 [image12]: ./output_images/heatmaps2.png
