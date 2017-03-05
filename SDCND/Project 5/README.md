@@ -142,7 +142,8 @@ The code for this step is contained in the 8th code cell of the IPython notebook
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./output_project_video.mp4)
+Here's a link to my video result: https://www.youtube.com/watch?v=0e4yp1gfGDc
+Here's another [link to my video result](./output_project_video.mp4)
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
