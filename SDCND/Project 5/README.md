@@ -34,6 +34,7 @@ The goals / steps of this project are the following:
 [image20]: ./output_images/output_bboxes4.png
 [image21]: ./output_images/output_bboxes5.png
 [image22]: ./output_images/output_bboxes6.png
+[image23]: ./output_images/normalized_features.png
 [video1]: ./output_project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -93,17 +94,22 @@ My next step was to combine multiple feature extraction methods (HOG, spatial, c
 
 After training a classifier using each of these feature extraction methods, I found the method including HOG performed better, so I chose to use the Spatial Binning + Color Histogram + HOG combination.
 
+#### NORMALIZING FEATURES
+Before training a classifier I needed to normalize the features. To do this I used the `StandardScaler` function. An example of features before and after normalization is shown below.
+
 The code for this step is contained in code cells 9-14 of the IPython notebook. 
+
+![alt text][image23]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
 I settled on my final choice of HOG parameters by trial and error and iterating my algorithm on the project video.
 
-There were 2 main parts I struggled with in tuning parameters, which color space to choose and the HOG parameters. LUV and YCrCb color spaces I found to work best on the video. I ended up chosing YCrCb because the classifier seemed to have less false positives on road signs in this color space. For HOG parameters I started out with the "standard" HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`, but ended up finding that `pixels_per_cell=(16, 16)` and `cells_per_block=(4, 4)` seemed to work better.
+There were 2 main parts I struggled with in tuning parameters, which color space to choose and the HOG parameters. LUV and YCrCb color spaces I found to work best on the video. I ended up chosing YCrCb because the classifier seemed to have less false positives on road signs in this color space. For HOG parameters I started out with the "standard" HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`, but ended up finding that a combination of `orientations=9`, `pixels_per_cell=(16, 16)` and `cells_per_block=(4, 4)` seemed to work better.
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using the `LinearSVC` function of sklearn's svm package. This seemed to work better for my system than decision trees. I trained the data by combining all of my training data, `cars` and `not-cars,` randomizing the data, splitting the data into 80% training and 20% test and then training a linear SVM. 
+I trained a linear SVM using the `LinearSVC` function of sklearn's svm package. This seemed to work better for my system than decision trees. I trained the data by combining all of my training data, `cars` and `not-cars,` randomizing the data, splitting the data into 75% training and 25% test and then training a linear SVM. 
 
 The code for this step is contained in code cells 17-20 of the IPython notebook. 
 
@@ -122,7 +128,7 @@ The code for this step is contained in code cells 15-16 of the IPython notebook.
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-I iterated on the training data, test images and project video and came to a final result that worked best for all by adjusting all of the feature extraction and window parameters. The classifier ended up having 97% accuracy on the test dataset. The images below show the results on a test image. Note that there are still some false positives that we will remove with heatmaps later.
+I adjusted the penalty parameter `c` of the optimizer to 0.1, this seemed to improve the resulting test accuracy by 1%, other SVM parameters seemed to have little effect. More generally, I iterated on the training data, test images and project video and came to a final result that worked best for all by adjusting all of the feature extraction and window parameters. The classifier ended up having 98% accuracy on the test dataset. The images below show the results on a test image. Note that there are still some false positives that we will remove with heatmaps later.
 
 ![alt text][image10]
 
@@ -138,7 +144,7 @@ Here's a [link to my video result](./output_project_video.mp4)
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-As we saw previously, after searching through multiple window sizes a number of false positive detections appeared. to remove them I used the heatmap method provided in lecture and tuned the threshold for the video and test images.
+As we saw previously, after searching through multiple window sizes a number of false positive detections appeared. to remove them I used the heatmap method provided in lecture and tuned the threshold (to 10) for the video and test images.
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
@@ -146,9 +152,19 @@ Here's an example result showing the heatmap from the test images, the result of
 
 ### Here are the test images and their corresponding heatmaps:
 ![alt text][image11]
+![alt text][image12]
+![alt text][image13]
+![alt text][image14]
+![alt text][image15]
+![alt text][image16]
 
 ### Here are the resulting bounding boxes drawn onto the original images:
-![alt text][image12]
+![alt text][image17]
+![alt text][image18]
+![alt text][image19]
+![alt text][image20]
+![alt text][image21]
+![alt text][image22]
 
 An additional step I performed was to setup a Vehicle Detection class to store the heatmaps from the last frame and combine it with the current frame. This was in an effort to average multiple frames together to get a more stable heatmap and remove more of the false positives.
 
