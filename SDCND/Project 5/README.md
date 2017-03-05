@@ -47,6 +47,11 @@ The goals / steps of this project are the following:
 
 This is the Writeup/README file.
 
+Note that I provided 2 IPython notebooks, one with most of the code executed so that important outputs are displayed and another with just the code unevaluated. This was due to the size of the notebook with all the code executed and output images displayed.
+
+* P5.ipynb - this is the code with most of the cells executed, it is large
+* P5_justcode.ipynb - this is just the code, it is very small
+
 ###Histogram of Oriented Gradients (HOG)
 
 ####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
