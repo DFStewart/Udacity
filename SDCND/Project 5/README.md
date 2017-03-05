@@ -66,8 +66,11 @@ I then explored different features in different color spaces by examining color 
 
 The code for this step is contained in code cells 4-6 of the IPython notebook. 
 
+##### COLOR HISTOGRAMS
 ![alt text][image3]
+##### COLOR 3D PLOT
 ![alt text][image4]
+##### SPATIAL BINNING
 ![alt text][image5]
 
 #### GRADIENT BASED FEATURES
